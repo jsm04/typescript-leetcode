@@ -1,29 +1,29 @@
-const isEditDistanceOne = (s1: string, s2: string) => {
-    let s1_len = s1.length,
-        s2_len = s2.length;
+const isEditDistanceOne = (firstString: string, secondString: string) => {
+    let A_len = firstString.length,
+        B_len = secondString.length;
 
-    if (Math.abs(s1_len - s2_len) > 1) return false;
+    if (Math.abs(A_len - B_len) > 1) return false;
 
     let count = 0;
-    let s1_idx = 0,
-        s2_idx = 0;
+    let A = 0,
+        B = 0;
 
-    while (s1_idx < s1_len && s2_idx < s2_len) {
-        if (s1[s1_idx] != s2[s2_idx]) {
-            if (s1_len > s2_len) s1_idx++;
-            else if (s1_len < s2_len) s2_idx++;
+    while (A < A_len && B < B_len) {
+        if (firstString[A] != secondString[B]) {
+            if (A_len > B_len) A++;
+            else if (A_len < B_len) B++;
             else {
-                s1_idx++;
-                s2_idx++;
+                A++;
+                B++;
             }
             count++;
         } else {
-            s1_idx++;
-            s2_idx++;
+            A++;
+            B++;
         }
     }
 
-    if (s1_idx < s1_len || s2_idx < s2_len) count++;
+    if (A < A_len || B < B_len) count++;
     return count === 1;
 };
 let s1 = "gfgf";

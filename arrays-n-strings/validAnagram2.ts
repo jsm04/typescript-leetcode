@@ -10,20 +10,20 @@
 
 const isAnagram = function (s: string, t: string): boolean {
     if (s.length !== t.length) return false;
-    const map = new Map<string, number>();
+    const list = new Array<number>();
 
     for (let i = 0; i < s.length; i++) {
         const char = s[i];
-        let temp = map.get(char);
-        if (!temp) map.set(char, 1);
-        else map.set(char, ++temp);
+        let temp = list[char];
+        if (!temp) list[char] = 1;
+        else list[char]++;
     }
 
     for (const char of t) {
-        let temp = map.get(char);
+        let temp = list[char];
         if (!temp) return false;
         if (temp < 0) return false;
-        map.set(char, --temp);
+        --list[char];
     }
     return true;
 };

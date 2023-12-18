@@ -9,9 +9,18 @@
 */
 
 const longestCommonPrefix = function (strs: string[]): string {
-    let res = "";
+    if (strs.length === 0) return "";
+    let prefix = strs[0];
 
-    return res;
+    for (let i = 1; i < strs.length; i++) {
+        const curr = strs[i];
+
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.substring(0, prefix.length - 1);
+            if (prefix === "") break;
+        }
+    }
+    return prefix;
 };
 
 const input = ["flower", "flow", "flight"];
@@ -26,3 +35,20 @@ Constraints:
     0 <= strs[i].length <= 200
     strs[i] consists of only lowercase English letters.
 */
+
+/*
+ var longestCommonPrefix = function (strs) {
+    if (strs.length === 0) return "";
+
+    let prefix = strs[0]; // Initialize prefix as the first string
+
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.substring(0, prefix.length - 1); // Reduce prefix length until it matches
+            if (prefix === "") return "";
+        }
+    }
+
+    return prefix;
+};
+ */

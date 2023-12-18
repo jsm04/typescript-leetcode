@@ -21,8 +21,11 @@ const twoSum = (nums: number[], target: number): number[] | undefined => {
     const map: Record<string, number> = {};
 
     for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-        map[nums[i]] = i;
+        const curr = nums[i],
+            complement = target - nums[i];
+
+        map[curr] = i;
+
         if (map[complement] !== undefined) {
             return [map[complement], i];
         }
@@ -32,23 +35,19 @@ const twoSum = (nums: number[], target: number): number[] | undefined => {
 
 // Data structure aproach
 class TwoSum {
-    private sets: number[];
-
-    constructor() {
-        this.sets = new Array<number>();
-    }
+    private list: number[] = [];
 
     public add(number: number): void {
-        this.sets.push(number);
+        this.list.push(number);
     }
 
     public find(value: number): boolean {
-        this.sets.sort((a, b) => a - b);
+        this.list.sort((a, b) => a - b);
 
-        for (let i = 0; i < this.sets.length; i++) {
-            if (this.sets[i] > value) break;
-            for (let j = i + 1; j < this.sets.length; j++) {
-                if (this.sets[i] + this.sets[j] === value) {
+        for (let i = 0; i < this.list.length; i++) {
+            if (this.list[i] > value) break;
+            for (let j = i + 1; j < this.list.length; j++) {
+                if (this.list[i] + this.list[j] === value) {
                     return true;
                 }
             }
