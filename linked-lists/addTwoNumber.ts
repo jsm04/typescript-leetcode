@@ -29,5 +29,6 @@ const addTwoNumbers = function (
         current.next = new ListNode(Math.floor(sum % 10));
         current = current.next;
     }
+
     return result.next;
 };

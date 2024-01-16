@@ -14,6 +14,7 @@ const setZeroes = function (matrix: number[][]): void {
             }
         }
     }
+
     // Second pass: Set elements in identified rows and columns to zero
     for (let row = 0; row < numRows; row++) {
         for (let col = 0; col < numCols; col++) {
@@ -36,14 +37,14 @@ class Matrix {
                     currCol[currCol] = true;
                 }
             }
-        }
 
-        for (let currRow = 0; currRow < row.length; currRow++) {
-            if (row[currRow]) this.nullifyRow(matrix, currRow);
-        }
+            for (let currRow = 0; currRow < row.length; currRow++) {
+                if (row[currRow]) this.nullifyRow(matrix, currRow);
+            }
 
-        for (let currCol = 0; currCol < col.length; currCol++) {
-            if (col[currCol]) this.nullifyCol(matrix, currCol);
+            for (let currCol = 0; currCol < col.length; currCol++) {
+                if (col[currCol]) this.nullifyCol(matrix, currCol);
+            }
         }
     }
 

@@ -10,7 +10,7 @@
 
 const isAnagram = function (s: string, t: string): boolean {
     if (s.length !== t.length) return false;
-    const list = new Array<number>();
+    const list = new Uint8Array();
 
     for (let i = 0; i < s.length; i++) {
         const char = s[i];

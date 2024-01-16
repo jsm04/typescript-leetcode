@@ -16,13 +16,13 @@ const bruteForceTwoSum = (
     return;
 };
 
-// Complement aproach
+// Complement
 const twoSum = (nums: number[], target: number): number[] | undefined => {
     const map: Record<string, number> = {};
 
     for (let i = 0; i < nums.length; i++) {
         const curr = nums[i],
-            complement = target - nums[i];
+            complement = target - curr;
 
         map[curr] = i;
 
@@ -33,7 +33,7 @@ const twoSum = (nums: number[], target: number): number[] | undefined => {
     return;
 };
 
-// Data structure aproach
+// Data structure
 class TwoSum {
     private list: number[] = [];
 
@@ -43,7 +43,6 @@ class TwoSum {
 
     public find(value: number): boolean {
         this.list.sort((a, b) => a - b);
-
         for (let i = 0; i < this.list.length; i++) {
             if (this.list[i] > value) break;
             for (let j = i + 1; j < this.list.length; j++) {
