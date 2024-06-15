@@ -1,13 +1,13 @@
 const isUnique = function (str: string) {
-    if (str.length > 128) return false;
-    const charSet = new Array<boolean[]>(128);
+    if (str.length > 128) return false
+    const charSet = new Array<boolean[]>(128)
 
     for (let i = 0; i < str.length; i++) {
-        let value = str.charAt(i);
+        let value = str.charAt(i)
         if (charSet[value]) {
-            return false;
+            return false
         }
-        charSet[value] = true;
+        charSet[value] = true
     }
-    return true;
-};
+    return true
+}

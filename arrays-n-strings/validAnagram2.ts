@@ -9,25 +9,25 @@
  */
 
 const isAnagram = function (s: string, t: string): boolean {
-    if (s.length !== t.length) return false;
-    const list = new Uint8Array();
+    if (s.length !== t.length) return false
+    const list = new Uint8Array()
 
     for (let i = 0; i < s.length; i++) {
-        const char = s[i];
-        let temp = list[char];
-        if (!temp) list[char] = 1;
-        else list[char]++;
+        const char = s[i]
+        let temp = list[char]
+        if (!temp) list[char] = 1
+        else list[char]++
     }
 
     for (const char of t) {
-        let temp = list[char];
-        if (!temp) return false;
-        if (temp < 0) return false;
-        --list[char];
+        let temp = list[char]
+        if (!temp) return false
+        if (temp < 0) return false
+        --list[char]
     }
-    return true;
-};
+    return true
+}
 
-const result = isAnagram("anagram", "nagaram");
+const result = isAnagram("anagram", "nagaram")
 
-console.log("Output: ", result);
+console.log("Output: ", result)

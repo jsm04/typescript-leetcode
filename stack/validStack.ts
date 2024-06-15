@@ -13,31 +13,31 @@ const isValid = function (s: string): boolean {
         "}": "{",
         "]": "[",
         ")": "(",
-    };
+    }
 
-    const stack: string[] = [];
-    const chars = s.split("");
+    const stack: string[] = []
+    const chars = s.split("")
 
     for (let i = 0; i < chars.length; i++) {
-        const current = chars[i];
+        const current = chars[i]
         if (current in closingToOpening) {
-            const pop = stack.pop();
+            const pop = stack.pop()
 
             if (closingToOpening[current] === pop) {
-                continue;
+                continue
             } else {
-                return false;
+                return false
             }
         } else {
-            stack.push(current);
+            stack.push(current)
         }
     }
-    if (stack.length > 0) return false;
-    return true;
-};
+    if (stack.length > 0) return false
+    return true
+}
 
-const Input = "()[]{}";
-console.log(isValid(Input));
+const Input = "()[]{}"
+console.log(isValid(Input))
 
 /*
 Example 1:

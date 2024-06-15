@@ -6,6 +6,14 @@
         "format": "prettier * --write --check --cache --cache-strategy metadata"
     },
     "license": "ISC",
+    "prettier": {
+        "useTabs": false,
+        "semi": false,
+        "printWidth": 80,
+        "trailingComma": "all",
+        "experimentalTernaries": true,
+        "bracketSpacing": true
+    },
     "devDependencies": {
         "@faker-js/faker": "^7.6.0",
         "@types/jest": "^29.5.3",

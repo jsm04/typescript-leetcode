@@ -12,32 +12,32 @@ Note that:
 */
 
 export const evalRPN = function (tokens: string[]): number {
-    const stack: number[] = [];
+    const stack: number[] = []
 
-    const temp = {
+    const handlers = {
         "*": () => stack.push(Number(stack.pop()) * Number(stack.pop())),
         "+": () => stack.push(Number(stack.pop()) + Number(stack.pop())),
         "-": () => {
-            const [a, b] = [Number(stack.pop()), Number(stack.pop())];
-            stack.push(b - a);
+            const [a, b] = [Number(stack.pop()), Number(stack.pop())]
+            stack.push(b - a)
         },
         "/": () => {
-            const [a, b] = [Number(stack.pop()), Number(stack.pop())];
-            stack.push(Math.trunc(b / a));
+            const [a, b] = [Number(stack.pop()), Number(stack.pop())]
+            stack.push(Math.trunc(b / a))
         },
-    };
+    }
 
     for (const char of tokens) {
-        const handler = temp[char];
+        const handler = handlers[char]
         if (!handler) {
-            stack.push(Number(char));
+            stack.push(Number(char))
         } else {
-            handler();
+            handler()
         }
     }
 
-    return stack[0];
-};
+    return stack[0]
+}
 
 const tokens = [
     "10",
@@ -53,11 +53,11 @@ const tokens = [
     "+",
     "5",
     "+",
-];
-const output = 22;
-const res = evalRPN(tokens);
+]
+const output = 22
+const res = evalRPN(tokens)
 
-console.log(res === output, `Output is: ${res}`);
+console.log(res === output, `Output is: ${res}`)
 
 /* Example 1:
 

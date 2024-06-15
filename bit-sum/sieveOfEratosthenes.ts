@@ -5,24 +5,25 @@ This algorithm is particularly useful when you need to efficiently find prime nu
 */
 
 function sieveOfEratosthenes(limit: number) {
-    const isPrime = new Uint8Array(Math.ceil(limit / 8)); // Using 1 bit per number
+    const isPrime = new Uint8Array(Math.ceil(limit / 8))
+    //Using 1 bit per number
     for (let i = 2; i * i <= limit; i++) {
         if ((isPrime[Math.floor(i / 8)] & (1 << i % 8)) === 0) {
             for (let j = i * i; j <= limit; j += i) {
-                isPrime[Math.floor(j / 8)] |= 1 << j % 8; // Mark as composite
+                isPrime[Math.floor(j / 8)] |= 1 << j % 8 // Mark as composite
             }
         }
     }
-    const primes = <number[]>[];
+    const primes = <number[]>[]
     for (let i = 2; i <= limit; i++) {
         if ((isPrime[Math.floor(i / 8)] & (1 << i % 8)) === 0) {
-            primes.push(i);
+            primes.push(i)
         }
     }
-    return primes;
+    return primes
 }
 
-const limit = 100;
-const primes = sieveOfEratosthenes(limit);
+const limit = 100
+const primes = sieveOfEratosthenes(limit)
 
-console.log(primes);
+console.log(primes)
