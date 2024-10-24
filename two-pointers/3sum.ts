@@ -1,4 +1,4 @@
-const {log} = console
+const { log } = console
 
 /* 
     Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 

@@ -19,7 +19,8 @@ const isPalindromePermutation = function (input: string): boolean {
             oddCount++
         }
     }
-    // A palindrome permutation can have at most one character with odd frequency
+
+    // A palindrome permutation can have atrmost one character with odd frequency
     return oddCount <= 1
 }
 

@@ -19,7 +19,7 @@ const containsNearbyDuplicate = function (nums: number[], k: number): boolean {
     let L = 0
     for (let R = 0; R < nums.length; R++) {
         if (R - L > k) {
-        window.delete(nums[L])
+            window.delete(nums[L])
             L += 1
         }
         if (window.has(nums[R])) return true

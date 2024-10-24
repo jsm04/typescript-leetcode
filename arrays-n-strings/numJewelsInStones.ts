@@ -9,7 +9,7 @@ const numJewelsInStones = function (jewels: string, stones: string): number {
 
     for (let i = 0; i < stones.length; i++) {
         if (jewelSet.has(stones.charAt(i))) answer++
-    } 
+    }
     return answer
 }
 

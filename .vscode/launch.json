@@ -4,11 +4,9 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug",
+            "name": "Debug with tsx",
             "runtimeExecutable": "tsx",
             "program": "${file}",
-            "outFiles": [],
-            "sourceMaps": true,
             "args": [],
             "cwd": "${workspaceFolder}",
             "internalConsoleOptions": "openOnSessionStart"
